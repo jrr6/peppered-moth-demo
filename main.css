@@ -1,0 +1,99 @@
+@import url('https://fonts.googleapis.com/css?family=Ubuntu');
+
+body {
+  overflow: hidden;
+}
+
+#pop-card {
+  position: absolute;
+  top: 0.5em;
+  right: 10em;
+}
+.moth.to-eat {
+  /* background: red;
+  border-radius: 100%; */
+}
+.moth.hidden {
+  visibility: hidden;
+}
+body *:not(i) {
+  font-family: 'Ubuntu' !important;
+}
+strong {
+  font-weight: bold;
+}
+#time-label {
+  width: 10em;
+  text-align: center;
+  position: absolute;
+  right: calc(50% - 5em);
+}
+.time-control .btn-floating {
+  margin-top: 1em;
+}
+#timeline {
+  pointer-events: none;
+}
+#pop-adjuster .btn-small {
+  display: block;
+  width: 50%;
+}
+#pop-adjuster .btn-small:first-of-type {
+  margin-bottom: 0.5em;
+}
+input[type="text"] {
+  pointer-events: none;
+}
+#mothify-button::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: url(moth_icon.png);
+  background-size: 65%;
+  background-position: 0.5em;
+  background-repeat: no-repeat;
+  filter: invert(100%);
+}
+
+.simulation {
+  height: 50vh;
+}
+
+.light-bark {
+  background-image: url('light_bark.jpg');
+  min-height: 55vh;
+  min-width: 55vw;
+  position: absolute;
+  left: 20vw;
+}
+.dark-bark {
+  background-image: url('sooty_bark.jpg');
+  min-height: 55vh;
+  min-width: 55vw;
+  position: absolute;
+  left: 20vw;
+  opacity: 0;
+}
+.moths {
+  height: 55vh;
+  width: 55vw;
+  position: absolute;
+  left: 20vw;
+}
+.moth {
+  max-width: 2vw;
+  max-height: 4vh;
+  position: absolute;
+}
+.moth.light {
+  content: url('light_moth.png');
+}
+.moth.dark {
+  content: url('dark_moth.png');
+}
+#citation-button {
+  position: absolute;
+  top: 1em;
+  left: 1em;
+}

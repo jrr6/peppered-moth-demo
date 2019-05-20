@@ -1,0 +1,149 @@
+<!-- Image sources -->
+<!-- Some possible ideas: https://globalchange.umich.edu/globalchange1/current/labs/Lab5_PepperedMoth/PepperedMoth.htm -->
+<!-- More ideas: http://mvhs.shodor.org/mvhsproj/moth/moth.html-->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Peppered Moth Simulation</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" media="screen" href="main.css">
+</head>
+<body>
+  <header></header>
+  <main>
+    <div class="container">
+      <div class="section">
+        <div class="row">
+          <div class="simulation">
+            <div class="dark-bark"></div>
+            <div class="light-bark"></div>
+            <div class="moths">
+              <!-- Moths get added here -->
+            </div>
+          </div>
+        </div>
+        <div id="pop-card" class="card teal darken-1">
+          <div class="card-content white-text">
+            <table id="cross-table">
+              <tr>
+                <th>Moth</th>
+                <th>Count</th>
+              </tr>
+              <tr>
+                <th>Dark</th>
+                <td id="dark-count"></td>
+              </tr>
+              <tr>
+                <th>Light</th>
+                <td id="light-count"></td>
+              </tr>
+              <tr>
+                <th>Total</th>
+                <td id="total-count"></td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="section">
+        <div class="row">
+          <div class="col s2">
+            <h5>Tree Bark</h5>
+            <p>
+              <label>
+                <input class="with-gap" name="bark-type" type="radio" value="dynamic" checked>
+                <span>Dynamic</span>
+              </label>
+            </p>
+            <p>
+              <label>
+                <input class="with-gap" name="bark-type" type="radio" value="clean">
+                <span>Clean</span>
+              </label>
+            </p>
+            <p>
+              <label>
+                <input class="with-gap" name="bark-type" type="radio" value="sooty">
+                <span>Sooty</span>
+              </label>
+            </p>
+          </div>
+          <div class="col s3">
+            <h5>Predator Voracity</h5>
+            <p class="range-field">
+              <input type="range" id="predator-voracity" min="0" max="3" value="2">
+              <label class="left">Passive</label>
+              <label class="right">Voracious</label>
+            </p>
+          </div>
+          <div class="col s3">
+            <h5>Initial Phenotypes</h5>
+            <p class="range-field">
+              <input type="range" id="phenotype-distro" min="0" max="100" value="2">
+              <label class="left">Light</label>
+              <label class="right">Dark</label>
+            </p>
+          </div>
+          <div class="col s4">
+            <h5>Population Size</h5>
+            <div class="input-field col s6">
+              <input value="80" type="text" id="moth-pop-no">
+              <label for="moth-pop-no">Number of Moths</label>
+            </div>
+            <div class="col s6" id="pop-adjuster">
+                <a class="waves-effect waves-light btn-small moth-pop-adj" id="moth-pop-adj-up"><i class="material-icons">arrow_drop_up</i></a>
+                <a class="waves-effect waves-light btn-small moth-pop-adj" id="moth-pop-adj-down"><i class="material-icons">arrow_drop_down</i></a>
+            </div>
+          </div>
+        </div>
+        <div class="time-control row">
+          <div class="col s1">
+              <a id="mothify-button" class="btn-floating waves-effect waves-light teal"></a>
+          </div>
+          <div class="col s1">
+            <a id="restart-button" class="btn-floating waves-effect waves-light teal"><i class="material-icons">fast_rewind</i></a>
+        </div>
+          <div class="col s1">
+              <a id="start-button" class="btn-floating waves-effect waves-light teal disabled"><i class="material-icons">play_arrow</i></a>
+          </div>
+          <div class="col s9">
+            <p class="range-field">
+              <input type="range" id="timeline" min="0" max="50" value="0">
+              <label class="left">0</label>
+              <label id="time-label"><strong>Time (years)</strong></label>
+              <label class="right">50</label>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Citations -->
+  <a class="btn-floating btn-large waves-effect waves-light grey modal-trigger" id="citation-button" href="#citations-modal"><i class="material-icons">info</i></a>
+  <div class="modal" id="citations-modal">
+    <div class="modal-content">
+      <h4>Sources and Third-Party Libraries</h4>
+      <p>Light peppered moth image: Wikimedia, 2006 (https://en.wikipedia.org/wiki/File:Biston.betularia.7200.jpg)</p>
+      <p>Dark peppered moth image: Wikimedia, 2006 (https://en.wikipedia.org/wiki/File:Biston.betularia.f.carbonaria.7209.jpg)</p>
+      <p>Sooty tree bark background: Arizona State University, 2015 (https://askabiologist.asu.edu/peppered-moths-game/assets/images/dark-forest.jpg)</p>
+      <p>Light tree bark background: Paul Sterry, n.d. (https://www.woodlandtrust.org.uk/visiting-woods/trees-woods-and-wildlife/british-trees/native-trees/common-beech/)</p>
+      <p>Moth silhouette icon: ArtsyBee on Pixabay, 2015 (https://pixabay.com/en/silhouette-drawing-outline-971333/)</p>
+      <p>Materialize CSS (https://materializecss.com, &copy; 2019) is made available under the MIT license</p>
+      <p>jQuery (https://jquery.com/, &copy; 2019) is made available under the MIT license</p>
+    </div>
+    <div class="modal-footer">
+        <a href="#!" class="modal-close waves-effect waves-grey btn-flat">Close</a>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
